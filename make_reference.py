@@ -23,5 +23,4 @@ if __name__ == '__main__':
         for test_class in suite:
             for test in test_class:
                 test.reference = True
-                print(test)
-                print(test(None))
+                test()
