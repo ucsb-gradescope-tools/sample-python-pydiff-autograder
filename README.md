@@ -4,12 +4,13 @@ A sample autograder for a Python assignment to show how diff-based autograding w
 
 To generate the reference output, without comparing to a student solution:
 
-> python3 make_reference.py
+> ./MAKE-REFERENCE.sh
 
 The reference output will be in the reference-output directory. Each test has an associated .err and .out file, containing the stdout and strderr respectively. For example, the output for test `test_a` would be in test_a.out and test_a.err. If any extra output files are specified for any of the tests, these files will also be in reference-output.
 
 To grade the solution in STUDENT-SOLUTION-1 (or any other directory):
 
+> ./MAKE-REFERENCE.sh
 > ./grade.sh STUDENT-SOLUTION-1
 
 The results will be in results.json.
