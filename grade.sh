@@ -34,5 +34,5 @@ copy_files_from_dir_if_it_exists $SUBMISSION_SOURCE
 python3 ../grade.py > ../results.json
 
 if [ -d /autograder/results ]; then
-    cp -v results.json /autograder/results
+    cp -v ../results.json /autograder/results
 fi
