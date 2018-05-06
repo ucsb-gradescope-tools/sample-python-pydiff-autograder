@@ -14,6 +14,9 @@ class TestAssignment(unittest.TestCase):
   #The @weight decorator indicates the number of points this test is worth
   #For documentation of this and other decorators, see:
   # https://github.com/gradescope/gradescope-utils/tree/master/gradescope_utils/autograder_utils 
+
+  #REPLACE THESE TESTS WITH YOUR OWN TESTS
+
   @weight(10)
   def test_out(self):
     #Compare the stdout of the reference and student solution for helloConsole.py
@@ -42,15 +45,11 @@ class TestAssignment(unittest.TestCase):
 
   def compareOutput(self, command, stdout = True, stderr = False, extra_outfiles = []):
     if (hasattr(self, "reference") and self.reference):
-      try:
-        with open(self.outputFileName('out'), 'w') as out, \
-        open(self.outputFileName('err'),'w') as err:
-          output = subprocess.run(command, stdout=out, stderr=err, shell=True)
-          for f in extra_outfiles:
-            shutil.move(f, self.outputDirectory())
-      except Exception as e:
-        print(e)
-        raise e
+      with open(self.outputFileName('out'), 'w') as out, \
+      open(self.outputFileName('err'),'w') as err:
+        output = subprocess.run(command, stdout=out, stderr=err, shell=True)
+        for f in extra_outfiles:
+          shutil.move(f, self.outputDirectory())
 
     else:
       output = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
@@ -67,5 +66,5 @@ class TestAssignment(unittest.TestCase):
       for f in extra_outfiles:
         self.assertTrue(os.path.exists(f), "File %s does not exist." % f)
         with open(f, 'r') as student_file, \
-        open(outputDirectory() + "/" + f,'r') as ref_file:
+        open(self.outputDirectory() + "/" + f,'r') as ref_file:
           self.assertEqual(ref_file.read(), student_file.read())

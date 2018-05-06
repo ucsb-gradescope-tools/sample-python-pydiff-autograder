@@ -17,7 +17,6 @@ if __name__ == '__main__':
         print("Error: No REFERENCE-SOLUTION directory!")
         sys.exit()
 
-
     suites = unittest.defaultTestLoader.discover('tests')
     for suite in suites:
         for test_class in suite:

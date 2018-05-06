@@ -1,2 +1,2 @@
-with open("helloo.txt", 'w') as f:
+with open("hello.txt", 'w') as f:
     f.write("Hello, file!")
