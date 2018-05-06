@@ -1,3 +1,11 @@
+if [ -f requirements.txt ]; then
+    pip install -r requirements.txt
+fi
+
+if [ -f requirements3.txt ]; then
+    pip3 install -r requirements3.txt
+fi
+
 if [ "$#" -eq 1 ]; then
     SUBMISSION_SOURCE=`pwd`/$1
 else
